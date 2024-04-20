@@ -16,6 +16,12 @@ The app is very simple.
 - 🖼️ Double click on the image will open it in external photo viewer app
 - 📁 All generated images are saved in `images` folder
 
+TODO:
+- [ ] Save api key in settings
+- [ ] Ability to view history of generated images
+- [ ] Edit models
+- [ ] Add different models e.g. MidJourney
+
 ![Main form](Documentation/01-start.png)
 ![Main form](Documentation/02-generating.png)
 ![Main form](Documentation/03-image.png)
