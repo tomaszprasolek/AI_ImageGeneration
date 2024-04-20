@@ -1,6 +1,6 @@
 # AI Image generation
 
-Simple WinForms app to generate image using Open AI Dall-E models.
+Simple WinForms app to generate images using Open AI Dall-E models.
 
 Under the hood the app use the OpenAI API to generate images.  
 Endpoint: `POST https://api.openai.com/v1/images/generations`  
