@@ -83,6 +83,7 @@
             txtUserPrompt.Name = "txtUserPrompt";
             txtUserPrompt.Size = new Size(310, 128);
             txtUserPrompt.TabIndex = 4;
+            txtUserPrompt.Text = "Sunset. You can see the sea on the left, the mountains on the right. There is a beach at the bottom center. In the distance you can see a small boat sailing by.";
             // 
             // lblUserPrompt
             // 

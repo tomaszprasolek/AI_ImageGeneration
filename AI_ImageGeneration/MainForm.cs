@@ -40,6 +40,8 @@ namespace AI_ImageGeneration
                 return;
             }
 
+            ShowPleaseWait();
+
             var service = new OpenAiService();
             var response = await service.GenerateImageAsync(txtApiKey.Text, txtUserPrompt.Text, cbModel.SelectedValue!.ToString()!);
             var imagePath = await DownloadImageAsync(response.Data[0].Url);
@@ -70,6 +72,11 @@ namespace AI_ImageGeneration
         private void pictureBox1_DoubleClick(object? sender, EventArgs e)
         {
             Process.Start("explorer.exe", pictureBox1.ImageLocation);
+        }
+
+        private void ShowPleaseWait()
+        {
+            pictureBox1.ImageLocation = Path.Combine(Directory.GetCurrentDirectory(), "Config", "pleaseWait.png");
         }
     }
 }
