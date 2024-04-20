@@ -112,12 +112,14 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.ImageLocation = "C:\\Users\\tomas\\Desktop\\AI DallE\\img-cQPFM4vAFhmLx06wUePmoFrA.png";
             pictureBox1.Location = new Point(328, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(460, 354);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
+            pictureBox1.DoubleClick += pictureBox1_DoubleClick;
             // 
             // btnGenerate
             // 

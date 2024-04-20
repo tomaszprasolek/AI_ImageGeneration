@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using AI_ImageGeneration.Services;
 using System.Net;
 
@@ -26,7 +27,7 @@ namespace AI_ImageGeneration
             cbModel.DataSource = models;
         }
 
-        private void btnGenerate_Click(object? sender, EventArgs e)
+        private async void btnGenerate_Click(object? sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtApiKey.Text))
             {
@@ -41,7 +42,7 @@ namespace AI_ImageGeneration
             }
 
             var service = new OpenAiService();
-            var response = service.GenerateImageAsync(txtApiKey.Text, txtUserPrompt.Text, cbModel.SelectedValue!.ToString()!).Result;
+            var response = await service.GenerateImageAsync(txtApiKey.Text, txtUserPrompt.Text, cbModel.SelectedValue!.ToString()!);
             var imagePath = DownloadImage(response.Data[0].Url);
             pictureBox1.ImageLocation = imagePath;
             txtGeneratedPrompt.Text = response.Data[0].RevisedPrompt;
@@ -61,6 +62,11 @@ namespace AI_ImageGeneration
             webClient.DownloadFile(url, imagePath);
 
             return imagePath;
+        }
+
+        private void pictureBox1_DoubleClick(object? sender, EventArgs e)
+        {
+            Process.Start(pictureBox1.ImageLocation);
         }
     }
 }
