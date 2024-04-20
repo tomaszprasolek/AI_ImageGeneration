@@ -68,7 +68,7 @@ namespace AI_ImageGeneration
 
             return imagePath;
         }
-        
+
         private void pictureBox1_DoubleClick(object? sender, EventArgs e)
         {
             Process.Start("explorer.exe", pictureBox1.ImageLocation);
@@ -77,6 +77,11 @@ namespace AI_ImageGeneration
         private void ShowPleaseWait()
         {
             pictureBox1.ImageLocation = Path.Combine(Directory.GetCurrentDirectory(), "Config", "pleaseWait.png");
+        }
+
+        private void btnCopyPrompt_Click(object sender, EventArgs e)
+        {
+            txtUserPrompt.Text = txtGeneratedPrompt.Text;
         }
     }
 }

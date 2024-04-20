@@ -39,6 +39,7 @@
             pictureBox1 = new PictureBox();
             btnGenerate = new Button();
             label1 = new Label();
+            btnCopyPrompt = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -97,7 +98,7 @@
             // lblGptUsedPrompt
             // 
             lblGptUsedPrompt.AutoSize = true;
-            lblGptUsedPrompt.Location = new Point(12, 249);
+            lblGptUsedPrompt.Location = new Point(12, 291);
             lblGptUsedPrompt.Name = "lblGptUsedPrompt";
             lblGptUsedPrompt.Size = new Size(76, 15);
             lblGptUsedPrompt.TabIndex = 7;
@@ -105,7 +106,7 @@
             // 
             // txtGeneratedPrompt
             // 
-            txtGeneratedPrompt.Location = new Point(12, 267);
+            txtGeneratedPrompt.Location = new Point(12, 309);
             txtGeneratedPrompt.Multiline = true;
             txtGeneratedPrompt.Name = "txtGeneratedPrompt";
             txtGeneratedPrompt.ReadOnly = true;
@@ -119,7 +120,7 @@
             pictureBox1.ImageLocation = "";
             pictureBox1.Location = new Point(328, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(460, 354);
+            pictureBox1.Size = new Size(531, 425);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
@@ -129,7 +130,7 @@
             // 
             btnGenerate.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGenerate.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnGenerate.Location = new Point(671, 372);
+            btnGenerate.Location = new Point(742, 443);
             btnGenerate.Name = "btnGenerate";
             btnGenerate.Size = new Size(117, 23);
             btnGenerate.TabIndex = 9;
@@ -143,17 +144,28 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.Control;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(328, 369);
+            label1.Location = new Point(399, 440);
             label1.Name = "label1";
             label1.Size = new Size(200, 20);
             label1.TabIndex = 10;
             label1.Text = "Double-click to open image";
             // 
+            // btnCopyPrompt
+            // 
+            btnCopyPrompt.Location = new Point(144, 280);
+            btnCopyPrompt.Name = "btnCopyPrompt";
+            btnCopyPrompt.Size = new Size(178, 23);
+            btnCopyPrompt.TabIndex = 11;
+            btnCopyPrompt.Text = "Copy to \"User prompt\" field";
+            btnCopyPrompt.UseVisualStyleBackColor = true;
+            btnCopyPrompt.Click += btnCopyPrompt_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 407);
+            ClientSize = new Size(871, 478);
+            Controls.Add(btnCopyPrompt);
             Controls.Add(label1);
             Controls.Add(btnGenerate);
             Controls.Add(pictureBox1);
@@ -189,5 +201,6 @@
         private PictureBox pictureBox1;
         private Button btnGenerate;
         private Label label1;
+        private Button btnCopyPrompt;
     }
 }
