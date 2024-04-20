@@ -13,16 +13,16 @@ namespace AI_ImageGeneration
 
         private async void MainForm_Load(object? sender, EventArgs e)
         {
-            cbModel.ValueMember = nameof(GptModel.Value);
-            cbModel.DisplayMember = nameof(GptModel.Name);
+            cbModel.ValueMember = nameof(GptImageModel.Value);
+            cbModel.DisplayMember = nameof(GptImageModel.Name);
             cbModel.DataSource = await GetModelsAsync();
         }
 
-        private static async Task<IList<GptModel>> GetModelsAsync()
+        private static async Task<IList<GptImageModel>> GetModelsAsync()
         {
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Config", "Models.json");
             string jsonString = await File.ReadAllTextAsync(filePath);
-            List<GptModel>? models = JsonSerializer.Deserialize<List<GptModel>>(jsonString);
+            List<GptImageModel>? models = JsonSerializer.Deserialize<List<GptImageModel>>(jsonString);
             return models!;
         }
 
