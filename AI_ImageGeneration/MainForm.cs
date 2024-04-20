@@ -43,23 +43,27 @@ namespace AI_ImageGeneration
 
             var service = new OpenAiService();
             var response = await service.GenerateImageAsync(txtApiKey.Text, txtUserPrompt.Text, cbModel.SelectedValue!.ToString()!);
-            var imagePath = DownloadImage(response.Data[0].Url);
+            var imagePath = await DownloadImageAsync(response.Data[0].Url);
             pictureBox1.ImageLocation = imagePath;
             txtGeneratedPrompt.Text = response.Data[0].RevisedPrompt;
         }
 
-        private string DownloadImage(string url)
+        private async Task<string> DownloadImageAsync(string url)
         {
             string imageName = $"{Guid.NewGuid()}.png";
-
             string imagesDirectory = Path.Combine(Directory.GetCurrentDirectory(), "images");
-            if (!Directory.Exists(imagesDirectory))
-                Directory.CreateDirectory(imagesDirectory);
-
             string imagePath = Path.Combine(imagesDirectory, imageName);
 
-            WebClient webClient = new WebClient();
-            webClient.DownloadFile(url, imagePath);
+            using var client = new HttpClient();
+            // Send a GET request to the specified Uri and get the response
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode(); // Throw if not a success code.
+
+            // Read the content of the response as a byte array
+            byte[] fileBytes = await response.Content.ReadAsByteArrayAsync();
+
+            // Save the byte array to a file
+            await File.WriteAllBytesAsync(imagePath, fileBytes);
 
             return imagePath;
         }
