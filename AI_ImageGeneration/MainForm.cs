@@ -67,10 +67,10 @@ namespace AI_ImageGeneration
 
             return imagePath;
         }
-
+        
         private void pictureBox1_DoubleClick(object? sender, EventArgs e)
         {
-            Process.Start(pictureBox1.ImageLocation);
+            Process.Start("explorer.exe", pictureBox1.ImageLocation);
         }
     }
 }

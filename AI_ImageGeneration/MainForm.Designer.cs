@@ -38,6 +38,7 @@
             txtGeneratedPrompt = new TextBox();
             pictureBox1 = new PictureBox();
             btnGenerate = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -112,7 +113,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.ImageLocation = "C:\\Users\\tomas\\Desktop\\AI DallE\\img-cQPFM4vAFhmLx06wUePmoFrA.png";
+            pictureBox1.ImageLocation = "";
             pictureBox1.Location = new Point(328, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(460, 354);
@@ -132,11 +133,23 @@
             btnGenerate.UseVisualStyleBackColor = true;
             btnGenerate.Click += btnGenerate_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.Control;
+            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label1.Location = new Point(328, 369);
+            label1.Name = "label1";
+            label1.Size = new Size(200, 20);
+            label1.TabIndex = 10;
+            label1.Text = "Double-click to open image";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 407);
+            Controls.Add(label1);
             Controls.Add(btnGenerate);
             Controls.Add(pictureBox1);
             Controls.Add(lblGptUsedPrompt);
@@ -147,6 +160,7 @@
             Controls.Add(lblModel);
             Controls.Add(txtApiKey);
             Controls.Add(lblApiKey);
+            MaximizeBox = false;
             MaximumSize = new Size(816, 446);
             MinimumSize = new Size(816, 446);
             Name = "MainForm";
@@ -170,5 +184,6 @@
         private TextBox txtGeneratedPrompt;
         private PictureBox pictureBox1;
         private Button btnGenerate;
+        private Label label1;
     }
 }
