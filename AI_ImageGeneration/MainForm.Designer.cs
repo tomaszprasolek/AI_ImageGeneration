@@ -113,6 +113,8 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.ImageLocation = "";
             pictureBox1.Location = new Point(328, 12);
             pictureBox1.Name = "pictureBox1";
@@ -124,6 +126,7 @@
             // 
             // btnGenerate
             // 
+            btnGenerate.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGenerate.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnGenerate.Location = new Point(671, 372);
             btnGenerate.Name = "btnGenerate";
@@ -135,6 +138,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.BackColor = SystemColors.Control;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
@@ -161,7 +165,6 @@
             Controls.Add(txtApiKey);
             Controls.Add(lblApiKey);
             MaximizeBox = false;
-            MaximumSize = new Size(816, 446);
             MinimumSize = new Size(816, 446);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
