@@ -1,4 +1,4 @@
-# AI_ImageGeneration
+# AI Image generation
 
 Simple WinForms app to generate image using Open AI Dall-E models.
 
