@@ -26,6 +26,11 @@ internal class OpenAiService
         request.Content = content;
 
         var httpResponse = await client.SendAsync(request);
+        if (!httpResponse.IsSuccessStatusCode)
+        {
+            string responseContent = await httpResponse.Content.ReadAsStringAsync();
+            Console.WriteLine(responseContent);
+        }
         httpResponse.EnsureSuccessStatusCode();
 
         var response = await httpResponse.Content.ReadFromJsonAsync<GptResponse>();

@@ -1,6 +1,6 @@
 using System.Diagnostics;
+using System.Text.Json;
 using AI_ImageGeneration.Services;
-using System.Net;
 
 namespace AI_ImageGeneration
 {
@@ -11,20 +11,19 @@ namespace AI_ImageGeneration
             InitializeComponent();
         }
 
-        private void MainForm_Load(object? sender, EventArgs e)
+        private async void MainForm_Load(object? sender, EventArgs e)
         {
-            List<GptModel> models = new List<GptModel>
-            {
-                new()
-                {
-                    Name = "[OpenAI] Dall-E 3",
-                    Value = "dall-e-3"
-                }
-            };
-
             cbModel.ValueMember = nameof(GptModel.Value);
             cbModel.DisplayMember = nameof(GptModel.Name);
-            cbModel.DataSource = models;
+            cbModel.DataSource = await GetModelsAsync();
+        }
+
+        private static async Task<IList<GptModel>> GetModelsAsync()
+        {
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Config", "Models.json");
+            string jsonString = await File.ReadAllTextAsync(filePath);
+            List<GptModel>? models = JsonSerializer.Deserialize<List<GptModel>>(jsonString);
+            return models!;
         }
 
         private async void btnGenerate_Click(object? sender, EventArgs e)
@@ -48,7 +47,7 @@ namespace AI_ImageGeneration
             txtGeneratedPrompt.Text = response.Data[0].RevisedPrompt;
         }
 
-        private async Task<string> DownloadImageAsync(string url)
+        private static async Task<string> DownloadImageAsync(string url)
         {
             string imageName = $"{Guid.NewGuid()}.png";
             string imagesDirectory = Path.Combine(Directory.GetCurrentDirectory(), "images");
