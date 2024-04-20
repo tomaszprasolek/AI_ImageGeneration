@@ -12,10 +12,10 @@ internal class OpenAiService
         var request = new HttpRequestMessage(HttpMethod.Post, "https://api.openai.com/v1/images/generations");
         request.Headers.Add("Authorization", $"Bearer {apiKey}");
 
-        var gptPrompt = new OpenAIPrompt
+        var gptPrompt = new OpenAiPrompt
         {
-            model = model,
-            prompt = userPrompt
+            Model = model,
+            Prompt = userPrompt
         };
         var json = JsonSerializer.Serialize(gptPrompt, new JsonSerializerOptions
         {

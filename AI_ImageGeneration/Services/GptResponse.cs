@@ -8,5 +8,5 @@ internal sealed class GptResponse
     public int Created { get; set; }
 
     [JsonPropertyName("data")]
-    public List<Data> Data { get; set; }
+    public List<Data> Data { get; set; } = new();
 }
